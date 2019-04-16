@@ -1,0 +1,84 @@
+/** Course Code: EYF649
+ *  Submission:  DS07_TestSelectionSort
+ *  Due Date:    20181203
+ *  Author:      Sean Mis
+ *  Description: This program tests the Selection
+ *               Sort method
+ */
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class DS07_SM_TestSelectionSort
+        extends DS07_SM_TestSort {
+
+    public static void main(String[] args) throws FileNotFoundException {
+
+        int choice;
+        File sort5k = new File("sort5k.txt");
+        File sort10k = new File("sort10k.txt");
+        File sort25k = new File("sort25k.txt");
+        File sort50k = new File("sort50k.txt");
+
+        System.out.println("0. Exit");
+        System.out.println("1. 5000 Integers");
+        System.out.println("2. 10000 Integers");
+        System.out.println("3. 25000 Integers");
+        System.out.println("4. 50000 Integers");
+        System.out.print("Please select the number of integers to sort: ");
+        choice = validateNumber();
+
+        while (choice != 0) {
+            switch (choice) {
+                case 1: // 5k
+                    Scanner input5k = new Scanner(sort5k);
+                    Integer[] a = new Integer[MAX_SIZE];
+                    for (int i = 0; i < a.length; i++) {
+                        a[i] = input5k.nextInt();
+                    }
+                    break;
+                case 2: // 10k
+                    Scanner input10k = new Scanner(sort10k);
+                    Integer[] b = new Integer[MAX_SIZE];
+                    for (int i = 0; i < b.length; i++) {
+                        b[i] = input10k.nextInt();
+                    }
+                    break;
+                case 3: // 25k
+                    Scanner input25k = new Scanner(sort25k);
+                    Integer[] c = new Integer[MAX_SIZE];
+                    for (int i = 0; i < c.length; i++) {
+                        c[i] = input25k.nextInt();
+                    }
+                    break;
+                case 4: // 50k
+                    Scanner input50k = new Scanner(sort50k);
+                    Integer[] d = new Integer[MAX_SIZE];
+                    for (int i = 0; i < d.length; i++) {
+                        d[i] = input50k.nextInt();
+                    }
+                    break;
+
+            }
+            System.out.println("0. Exit");
+            System.out.println("1. Selection Sort");
+            System.out.println("2. Insertion Sort");
+            System.out.println("3. Quick Sort");
+            System.out.println("4. Shell Sort");
+            System.out.print("Please select a sorting method: ");
+            choice = validateNumber();
+        }
+    }
+
+    private static int validateNumber() {
+        int validNumber;
+        while (!input.hasNextInt()) {
+            System.out.print("Please enter a valid integer: ");
+            input.next();
+        }
+        validNumber = input.nextInt();
+        return validNumber;
+    }
+
+}
